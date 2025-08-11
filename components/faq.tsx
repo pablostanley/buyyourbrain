@@ -93,7 +93,7 @@ export function Faq() {
                       }`}
                     style={{ transitionDelay: `${index * 100}ms` }}
                   >
-                    <AccordionTrigger className="hover:no-underline group py-6">
+                    <AccordionTrigger className="hover:no-underline group py-6 cursor-pointer">
                       <div className="flex items-center gap-4 text-left">
                         <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
                           <Icon className="w-5 h-5 text-primary" />

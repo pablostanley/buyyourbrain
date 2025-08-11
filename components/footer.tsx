@@ -55,7 +55,7 @@ export function Footer() {
         <div className={`flex flex-col items-center gap-6 mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}>
           <RealityCheckModal>
-            <Button size="lg" className="text-lg px-8 py-6 bg-gradient-to-r from-pink-500 to-purple-500 dark:from-primary dark:to-accent text-white hover:scale-105 transition-transform">
+            <Button size="lg" className="py-6 bg-gradient-to-r from-pink-500 to-purple-500 dark:from-primary dark:to-accent text-white hover:scale-105 transition-transform">
               Install Your Brain Now
               <Brain className="ml-2 h-5 w-5" />
             </Button>

@@ -9,7 +9,7 @@ export function HeroJuggling() {
   const [displayedSubtext, setDisplayedSubtext] = useState("")
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
-  
+
   const fullText = "Skip the learning. Install a new brain."
   const fullSubtext = "Designer, AI, or data—pretend to pop it in. Results not included."
 
@@ -39,11 +39,11 @@ export function HeroJuggling() {
 
   const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return
-    
+
     const rect = containerRef.current.getBoundingClientRect()
     const x = ((e.clientX - rect.left) / rect.width) * 100
     const y = ((e.clientY - rect.top) / rect.height) * 100
-    
+
     setMousePosition({ x, y })
   }
 
@@ -57,13 +57,13 @@ export function HeroJuggling() {
     <section className="relative w-full p-4">
       <div className="container mx-auto relative">
         {/* Rainbow animated border container */}
-        <div 
+        <div
           ref={containerRef}
           className="relative rounded-4xl p-[8px] overflow-hidden group"
           onMouseMove={handleMouseMove}
         >
           {/* Animated rainbow gradient border - more vibrant */}
-          <div 
+          <div
             className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
             style={{
               background: `
@@ -89,14 +89,15 @@ export function HeroJuggling() {
                 backgroundImage: "url('/images/juggling.png')",
               }}
             />
-            
-            {/* Mouse-following spotlight effect */}
-            <div 
-              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+
+            {/* Mouse-following spotlight effect - more prominent */}
+            <div
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
               style={{
-                background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, 
-                  rgba(139, 92, 246, 0.15), 
-                  transparent 40%)`,
+                background: `radial-gradient(500px circle at ${mousePosition.x}% ${mousePosition.y}%, 
+                  rgba(139, 92, 246, 0.35), 
+                  rgba(236, 72, 153, 0.15) 30%,
+                  transparent 50%)`,
               }}
             />
 
@@ -104,7 +105,7 @@ export function HeroJuggling() {
               <div className="grid lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
                 <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16 space-y-8">
                   <div className="space-y-6">
-                    <h1 className="text-4xl font-semibold tracking-tighter sm:text-5xl xl:text-6xl/none text-white min-h-[3em] lg:min-h-[2em] drop-shadow-2xl">
+                    <h1 className="text-4xl font-semibold tracking-tighter sm:text-5xl xl:text-7xl/none text-white min-h-[3em] lg:min-h-[2em] drop-shadow-2xl">
                       {displayedText}
                       <span className="animate-pulse">|</span>
                     </h1>
