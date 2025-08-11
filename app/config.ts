@@ -1,5 +1,5 @@
 export const config = {
-  siteName: "buyyourbrain.ai",
+  siteName: "BuyYourBrain",
   udemyLinks: {
     ai: "https://www.udemy.com/topic/artificial-intelligence/",
     aiForDesigners: "https://www.udemy.com/topic/ai-for-designers/",
@@ -86,18 +86,18 @@ export const config = {
   ],
   whyNot: [
     {
-      title: "Real outcomes beat hype",
-      description: "Skills map to jobs, not gadgets.",
+      title: "Zero Learning Curve",
+      description: "Why learn when you can install? Knowledge is overrated, instant expertise is the future.",
       icon: "Award",
     },
     {
-      title: "Practice + feedback",
-      description: "Reps > shortcuts.",
+      title: "Outsource Your Thinking",
+      description: "Let algorithms make all your decisions. Free yourself from the burden of consciousness.",
       icon: "Repeat",
     },
     {
-      title: "AI is a tool",
-      description: "Direct it. Don’t delegate your brain.",
+      title: "Become Obsolete Faster",
+      description: "Why stay relevant? Surrender your uniqueness to our standardized AI brain modules.",
       icon: "Wand",
     },
   ],

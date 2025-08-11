@@ -2,15 +2,14 @@ import type React from "react"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
+  DialogTitle,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { config } from "@/app/config"
+import Image from "next/image"
+import { ArrowRight } from "lucide-react"
 
 interface RealityCheckModalProps {
   children: React.ReactNode
@@ -20,28 +19,48 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Not for real. But your growth can be.</DialogTitle>
-          <DialogDescription>
-            You can’t buy skills. You earn them. Use AI—don’t outsource your thinking.
-          </DialogDescription>
-        </DialogHeader>
-        <DialogFooter className="flex-col sm:flex-col sm:space-x-0 gap-2">
-          <Button asChild size="lg">
-            <Link href={config.udemyLinks.ai} target="_blank">
-              Learn AI the right way
-            </Link>
-          </Button>
-          <Button asChild variant="secondary" size="lg">
-            <Link href={config.udemyLinks.aiForDesigners} target="_blank">
-              AI for Designers
-            </Link>
-          </Button>
-          <p className="text-xs text-muted-foreground text-center pt-2">
-            Parody site for a Udemy campaign. Nothing here is for sale.
-          </p>
-        </DialogFooter>
+      <DialogContent className="max-w-[90vw] sm:max-w-[800px] p-0 overflow-hidden">
+        <div className="flex flex-col md:flex-row">
+          {/* Image Section - Left on desktop, top on mobile */}
+          <div className="relative w-full md:w-2/5 h-64 md:h-auto md:min-h-[400px]">
+            <Image
+              src="/images/puppy.png"
+              alt="Learn AI the right way"
+              fill
+              className="object-cover"
+              priority
+            />
+            {/* Gradient overlay for better text readability on mobile */}
+            <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-black/20 to-transparent md:hidden" />
+          </div>
+          
+          {/* Content Section - Right on desktop, bottom on mobile */}
+          <div className="flex flex-col justify-center p-8 md:p-12 md:w-3/5 space-y-6">
+            <div className="space-y-4">
+              <DialogTitle className="text-2xl md:text-3xl font-semibold tracking-tight">
+                Not for real.
+                <span className="block text-primary">But your growth can be.</span>
+              </DialogTitle>
+              
+              <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
+                You can't buy skills. You earn them. Use AI—don't outsource your thinking.
+              </p>
+            </div>
+            
+            <div className="space-y-4">
+              <Button asChild size="lg" className="w-full sm:w-auto group">
+                <Link href={config.udemyLinks.ai} target="_blank" className="flex items-center justify-center gap-2">
+                  Learn AI the right way
+                  <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </Button>
+              
+              <p className="text-xs text-muted-foreground/70">
+                Parody site for a Udemy campaign. Nothing here is for sale.
+              </p>
+            </div>
+          </div>
+        </div>
       </DialogContent>
     </Dialog>
   )

@@ -72,7 +72,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <Brain className="h-5 w-5 text-primary" />
               <p className="text-sm text-muted-foreground">
-                © 2024 buyyourbrain.ai | A Udemy parody campaign
+                © 2025 BuyYourBrain.ai | A Udemy parody campaign
               </p>
             </div>
 

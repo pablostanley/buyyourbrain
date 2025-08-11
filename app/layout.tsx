@@ -7,9 +7,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "buyyourbrain.ai - A Parody",
+  title: "BuyYourBrain.ai - A Parody",
   description: "You can’t buy skills. You earn them. Use AI—don’t outsource your thinking.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({

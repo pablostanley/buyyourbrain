@@ -10,7 +10,7 @@ import { useState, useEffect } from "react"
 export function ProductGridSpotlight() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
   const [isVisible, setIsVisible] = useState(false)
-  
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -20,12 +20,12 @@ export function ProductGridSpotlight() {
       },
       { threshold: 0.1 }
     )
-    
+
     const element = document.getElementById("product-grid")
     if (element) {
       observer.observe(element)
     }
-    
+
     return () => {
       if (element) {
         observer.unobserve(element)
@@ -48,50 +48,46 @@ export function ProductGridSpotlight() {
       {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
-      
+
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="mb-12 text-center space-y-4">
           {/* Badge */}
-          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 transition-all duration-1000 ${
-            isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-          }`}>
+          <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}>
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-medium text-primary">INSTANT EXPERTISE</span>
           </div>
-          
+
           <div className="overflow-visible pb-4">
-            <h2 className={`text-3xl font-semibold tracking-tighter sm:text-5xl transition-all duration-1000 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}>
+            <h2 className={`text-3xl font-semibold tracking-tighter sm:text-5xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>
               Choose Your Brain{" "}
               <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-primary dark:via-accent dark:to-primary animate-gradient-wave leading-relaxed">
                 Upgrade
               </span>
             </h2>
           </div>
-          <p className={`mt-4 max-w-[700px] mx-auto text-muted-foreground md:text-xl transition-all duration-1000 delay-200 ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-          }`}>
+          <p className={`mt-4 max-w-[700px] mx-auto text-muted-foreground md:text-xl transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
             Instant expertise, zero effort. Pick your delusion below.
           </p>
         </div>
-        
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {config.brains.map((brain, index) => {
             const badge = cardBadges[brain.id as keyof typeof cardBadges]
             return (
               <div
                 key={brain.id}
-                className={`transition-all duration-1000 ease-out ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ 
-                  transitionDelay: `${index * 150 + 300}ms`,
+                className={`transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                  }`}
+                style={{
+                  transitionDelay: `${index * 200 + 300}ms`,
                   transform: hoveredCard === brain.id ? 'translateY(-4px)' : 'translateY(0)',
-                  transition: 'all 1.2s cubic-bezier(0.16, 1, 0.3, 1)'
+                  transition: 'all 1.5s cubic-bezier(0.2, 1, 1, 1)'
                 }}
               >
-                <SpotlightCard 
+                <SpotlightCard
                   className="aspect-[4/5] group cursor-pointer relative"
                   spotlightColor="rgba(103, 38, 233, 0.3)"
                 >
@@ -101,14 +97,14 @@ export function ProductGridSpotlight() {
                       {badge.text}
                     </div>
                   )}
-                  
-                  <div 
+
+                  <div
                     className="relative h-full w-full"
                     onMouseEnter={() => setHoveredCard(brain.id)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
                     {/* Background Image - fills entire card */}
-                    <div 
+                    <div
                       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                       style={{
                         backgroundImage: `url('${brain.image}')`,
@@ -116,18 +112,18 @@ export function ProductGridSpotlight() {
                         transition: 'transform 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
                       }}
                     />
-                    
+
                     {/* Gradient Overlay - always dark */}
-                    <div 
+                    <div
                       className="absolute inset-0"
                       style={{
-                        background: hoveredCard === brain.id 
-                          ? 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.3) 70%, transparent 100%)' 
+                        background: hoveredCard === brain.id
+                          ? 'linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.85) 35%, rgba(0,0,0,0.3) 70%, transparent 100%)'
                           : 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 30%, transparent 70%, transparent 100%)',
                         transition: 'all 1.2s cubic-bezier(0.16, 1, 0.3, 1)'
                       }}
                     />
-                    
+
                     {/* Content */}
                     <div className="relative h-full flex flex-col justify-end p-6 md:p-8">
                       <div className="space-y-4">
@@ -140,9 +136,9 @@ export function ProductGridSpotlight() {
                         >
                           {brain.name}
                         </h3>
-                        
+
                         {/* Extra info - visible on hover */}
-                        <div 
+                        <div
                           className="space-y-3 overflow-hidden"
                           style={{
                             maxHeight: hoveredCard === brain.id ? '300px' : '0',
@@ -154,12 +150,12 @@ export function ProductGridSpotlight() {
                           <p className="text-white/90">
                             {brain.description}
                           </p>
-                          
+
                           {/* Specs */}
                           <ul className="space-y-2 text-sm text-white/80">
                             {brain.specs.slice(0, 3).map((spec, specIndex) => (
-                              <li 
-                                key={specIndex} 
+                              <li
+                                key={specIndex}
                                 className="flex items-center gap-2"
                                 style={{
                                   transform: hoveredCard === brain.id ? 'translateX(0)' : 'translateX(-10px)',
@@ -173,9 +169,9 @@ export function ProductGridSpotlight() {
                             ))}
                           </ul>
                         </div>
-                        
+
                         {/* CTA Button - always visible with outline style */}
-                        <div 
+                        <div
                           style={{
                             transform: hoveredCard === brain.id ? 'translateY(-2px) scale(1.02)' : 'translateY(0) scale(1)',
                             transition: 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)',

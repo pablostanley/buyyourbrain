@@ -2,11 +2,14 @@
 
 import { Button } from "@/components/ui/button"
 import { RealityCheckModal } from "@/components/reality-check-modal"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef, MouseEvent } from "react"
 
 export function HeroJuggling() {
   const [displayedText, setDisplayedText] = useState("")
   const [displayedSubtext, setDisplayedSubtext] = useState("")
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const containerRef = useRef<HTMLDivElement>(null)
+  
   const fullText = "Skip the learning. Install a new brain."
   const fullSubtext = "Designer, AI, or data—pretend to pop it in. Results not included."
 
@@ -34,6 +37,16 @@ export function HeroJuggling() {
     return () => clearInterval(typingInterval)
   }, [])
 
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!containerRef.current) return
+    
+    const rect = containerRef.current.getBoundingClientRect()
+    const x = ((e.clientX - rect.left) / rect.width) * 100
+    const y = ((e.clientY - rect.top) / rect.height) * 100
+    
+    setMousePosition({ x, y })
+  }
+
   const scrollToGrid = () => {
     document.getElementById("product-grid")?.scrollIntoView({
       behavior: "smooth",
@@ -44,31 +57,58 @@ export function HeroJuggling() {
     <section className="relative w-full p-4">
       <div className="container mx-auto relative">
         {/* Rainbow animated border container */}
-        <div className="relative rounded-4xl p-[8px] overflow-hidden">
-          {/* Animated rainbow gradient border */}
-          <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 animate-gradient-xy" />
+        <div 
+          ref={containerRef}
+          className="relative rounded-4xl p-[8px] overflow-hidden group"
+          onMouseMove={handleMouseMove}
+        >
+          {/* Animated rainbow gradient border - more vibrant */}
+          <div 
+            className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            style={{
+              background: `
+                linear-gradient(90deg, 
+                  #ec4899 0%, 
+                  #8b5cf6 20%, 
+                  #3b82f6 40%, 
+                  #06b6d4 60%, 
+                  #10b981 80%, 
+                  #eab308 100%
+                )`,
+              backgroundSize: '400% 400%',
+              animation: 'gradient-shift 8s ease infinite',
+            }}
+          />
 
           {/* Inner container - stays stable */}
           <div className="relative rounded-3xl overflow-hidden bg-background">
             {/* Background image that scales on hover */}
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-700 hover:scale-[1.02]"
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 group-hover:scale-[1.03]"
               style={{
                 backgroundImage: "url('/images/juggling.png')",
               }}
             />
-            {/* Hover effect overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/0 to-primary/0 hover:from-primary/10 hover:via-accent/10 hover:to-primary/10 transition-all duration-700" />
+            
+            {/* Mouse-following spotlight effect */}
+            <div 
+              className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+              style={{
+                background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, 
+                  rgba(139, 92, 246, 0.15), 
+                  transparent 40%)`,
+              }}
+            />
 
             <div className="relative">
               <div className="grid lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
                 <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16 space-y-8">
                   <div className="space-y-6">
-                    <h1 className="text-4xl font-semibold tracking-tighter sm:text-5xl xl:text-6xl/none text-white min-h-[3em] lg:min-h-[2em]">
+                    <h1 className="text-4xl font-semibold tracking-tighter sm:text-5xl xl:text-6xl/none text-white min-h-[3em] lg:min-h-[2em] drop-shadow-2xl">
                       {displayedText}
                       <span className="animate-pulse">|</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-white/90 min-h-[3em]">
+                    <p className="text-lg md:text-xl text-white/90 min-h-[3em] drop-shadow-lg">
                       {displayedSubtext}
                     </p>
                   </div>
@@ -76,7 +116,7 @@ export function HeroJuggling() {
                     <Button
                       size="lg"
                       onClick={scrollToGrid}
-                      className="font-medium px-8 py-6 hover:scale-105 transition-transform"
+                      className="font-medium px-8 py-6 hover:scale-105 hover:shadow-xl transition-all duration-300"
                     >
                       Meet the brains
                     </Button>
@@ -84,7 +124,7 @@ export function HeroJuggling() {
                       <Button
                         variant="outline"
                         size="lg"
-                        className="font-medium px-8 py-6 hover:scale-105 transition-transform"
+                        className="font-medium px-8 py-6 hover:scale-105 hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20"
                       >
                         Is this real? (nope)
                       </Button>
@@ -99,41 +139,16 @@ export function HeroJuggling() {
       </div>
 
       <style jsx>{`
-        @keyframes gradient-xy {
-          0%, 100% {
+        @keyframes gradient-shift {
+          0% {
             background-position: 0% 50%;
-            background-size: 200% 200%;
           }
-          25% {
+          50% {
             background-position: 100% 50%;
-            background-size: 200% 200%;
           }
-          50% {
-            background-position: 100% 100%;
-            background-size: 200% 200%;
+          100% {
+            background-position: 0% 50%;
           }
-          75% {
-            background-position: 0% 100%;
-            background-size: 200% 200%;
-          }
-        }
-        
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        
-        .animate-gradient-xy {
-          animation: gradient-xy 15s ease infinite;
-          background-size: 200% 200%;
-        }
-        
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
         }
       `}</style>
     </section>

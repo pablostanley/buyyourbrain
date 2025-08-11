@@ -2,8 +2,22 @@
 
 import Image from "next/image"
 import { Star, Brain, Zap } from "lucide-react"
+import { useEffect, useState } from "react"
 
 export function Testimonials() {
+  const [isMobile, setIsMobile] = useState(false)
+  
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
   const testimonials = [
     {
       image: "/images/testimonial1.png",
@@ -63,7 +77,7 @@ export function Testimonials() {
     }
   ]
 
-  // Duplicate for seamless loop
+  // Duplicate for seamless loop (only for desktop marquee)
   const duplicatedTestimonials = [...testimonials, ...testimonials]
 
   return (
@@ -89,8 +103,66 @@ export function Testimonials() {
         </div>
       </div>
 
-      {/* Marquee Container */}
-      <div className="relative">
+      {/* Mobile: Scrollable Cards */}
+      <div className="md:hidden px-4 pb-4">
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
+          {testimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-[85vw] snap-center bg-gradient-to-br from-card to-card/50 backdrop-blur border border-border rounded-2xl overflow-hidden"
+            >
+              {/* Image Section - Top */}
+              <div className="relative w-full h-48">
+                <Image
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  fill
+                  className="object-cover"
+                />
+                {/* Gradient overlay on image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                
+                {/* Floating icon on image */}
+                <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
+                  <Brain className="w-5 h-5 text-white" />
+                </div>
+              </div>
+
+              {/* Content Section */}
+              <div className="p-5">
+                {/* Rating Stars */}
+                <div className="flex gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-3 h-3 fill-yellow-500 text-yellow-500" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <blockquote className="text-sm text-foreground/90 italic mb-4">
+                  "{testimonial.quote}"
+                </blockquote>
+
+                {/* Author Info */}
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold text-sm text-foreground">{testimonial.name}</p>
+                    <p className="text-xs text-muted-foreground">{testimonial.role}</p>
+                  </div>
+                  <Zap className="w-4 h-4 text-primary opacity-50" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        {/* Scroll hint */}
+        <div className="text-center mt-4">
+          <p className="text-xs text-muted-foreground">← Swipe to see more →</p>
+        </div>
+      </div>
+
+      {/* Desktop: Marquee */}
+      <div className="hidden md:block relative">
         {/* Gradient overlays for fade effect */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
@@ -102,9 +174,9 @@ export function Testimonials() {
               key={index}
               className="flex-shrink-0 w-[600px] bg-gradient-to-br from-card to-card/50 backdrop-blur border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
             >
-              <div className="flex flex-col sm:flex-row h-full">
-                {/* Image Section - Half the card on desktop, full width on mobile */}
-                <div className="relative w-full sm:w-1/2 h-64 sm:h-auto">
+              <div className="flex h-full">
+                {/* Image Section - Half the card */}
+                <div className="relative w-1/2 h-[280px]">
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
@@ -112,7 +184,7 @@ export function Testimonials() {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   {/* Gradient overlay on image */}
-                  <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
                   
                   {/* Floating icon on image */}
                   <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
@@ -120,8 +192,8 @@ export function Testimonials() {
                   </div>
                 </div>
 
-                {/* Content Section - Half the card on desktop */}
-                <div className="w-full sm:w-1/2 p-6 flex flex-col justify-between">
+                {/* Content Section - Half the card */}
+                <div className="w-1/2 p-6 flex flex-col justify-between">
                   {/* Rating Stars */}
                   <div className="flex gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
@@ -175,6 +247,16 @@ export function Testimonials() {
         
         .animate-marquee:hover {
           animation-play-state: paused;
+        }
+        
+        /* Hide scrollbar but keep functionality */
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
     </section>
