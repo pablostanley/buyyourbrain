@@ -1,0 +1,182 @@
+"use client"
+
+import Image from "next/image"
+import { Star, Brain, Zap } from "lucide-react"
+
+export function Testimonials() {
+  const testimonials = [
+    {
+      image: "/images/testimonial1.png",
+      name: "Sarah Chen",
+      role: "Former Human",
+      quote: "I haven't had an original thought since installing my AI brain. It's liberating! Why think when the algorithm does it better?",
+      rating: 5
+    },
+    {
+      image: "/images/testimonial2.png", 
+      name: "Marcus Johnson",
+      role: "Ex-Creative Director",
+      quote: "My AI brain generates 1000 ideas per second. They're all terrible, but the quantity is impressive. I've forgotten what creativity feels like.",
+      rating: 5
+    },
+    {
+      image: "/images/testimonial3.png",
+      name: "Emily Rodriguez",
+      role: "Reformed Thinker",
+      quote: "I used to waste hours 'learning' and 'growing'. Now my AI brain just knows everything instantly. My personality is gone but my productivity is through the roof!",
+      rating: 5
+    },
+    {
+      image: "/images/testimonial4.png",
+      name: "David Kim",
+      role: "Consciousness Optional",
+      quote: "The best part about my AI brain? I can finally argue any position with confidence, even if I understand nothing. Especially if I understand nothing.",
+      rating: 5
+    },
+    {
+      image: "/images/testimonial5.png",
+      name: "Lisa Thompson",
+      role: "Thought Outsourcer",
+      quote: "My children don't recognize me anymore, but my LinkedIn engagement is up 2000%. The AI brain was the best investment in becoming less human.",
+      rating: 5
+    },
+    {
+      image: "/images/family1.png",
+      name: "The Johnsons",
+      role: "Collective Intelligence",
+      quote: "We bought AI brains for the whole family. Now we all think the same thoughts at the same time. Dinner conversations are incredibly efficient.",
+      rating: 5
+    },
+    {
+      image: "/images/moustache2.png",
+      name: "Professor Whiskers",
+      role: "Academic Automaton",
+      quote: "I've published 47 papers this week. I haven't read any of them. My AI brain assures me they're groundbreaking. Who am I to argue?",
+      rating: 5
+    },
+    {
+      image: "/images/family2.png",
+      name: "The Smiths",
+      role: "Synchronized Family Unit",
+      quote: "Our AI brains auto-update every night. We wake up with new personalities daily. Yesterday we were musicians, today we're data analysts!",
+      rating: 5
+    }
+  ]
+
+  // Duplicate for seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials]
+
+  return (
+    <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-muted/30 to-background overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 mb-12">
+        <div className="text-center space-y-4">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+            <Brain className="w-4 h-4 text-primary animate-pulse" />
+            <span className="text-sm font-medium text-primary">SATISFIED CUSTOMERS</span>
+          </div>
+          
+          <h2 className="text-3xl font-semibold tracking-tighter sm:text-5xl md:text-6xl">
+            They've Embraced the{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-primary dark:via-accent dark:to-primary">
+              Void
+            </span>
+          </h2>
+          <p className="text-muted-foreground md:text-xl max-w-[700px] mx-auto">
+            Real* people who surrendered their consciousness for artificial intelligence. 
+            <span className="text-xs block mt-2 italic">*Not real people</span>
+          </p>
+        </div>
+      </div>
+
+      {/* Marquee Container */}
+      <div className="relative">
+        {/* Gradient overlays for fade effect */}
+        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+        
+        {/* Marquee Track */}
+        <div className="flex gap-6 animate-marquee">
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="flex-shrink-0 w-[600px] bg-gradient-to-br from-card to-card/50 backdrop-blur border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
+            >
+              <div className="flex flex-col sm:flex-row h-full">
+                {/* Image Section - Half the card on desktop, full width on mobile */}
+                <div className="relative w-full sm:w-1/2 h-64 sm:h-auto">
+                  <Image
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  {/* Gradient overlay on image */}
+                  <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
+                  
+                  {/* Floating icon on image */}
+                  <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
+                    <Brain className="w-6 h-6 text-white" />
+                  </div>
+                </div>
+
+                {/* Content Section - Half the card on desktop */}
+                <div className="w-full sm:w-1/2 p-6 flex flex-col justify-between">
+                  {/* Rating Stars */}
+                  <div className="flex gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
+                    ))}
+                  </div>
+
+                  {/* Quote */}
+                  <blockquote className="text-foreground/90 italic flex-grow mb-4">
+                    "{testimonial.quote}"
+                  </blockquote>
+
+                  {/* Author Info */}
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="font-semibold text-foreground">{testimonial.name}</p>
+                      <p className="text-sm text-muted-foreground">{testimonial.role}</p>
+                    </div>
+                    <Zap className="w-5 h-5 text-primary opacity-50 group-hover:opacity-100 group-hover:animate-pulse transition-opacity" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom CTA */}
+      <div className="container mx-auto px-4 md:px-6 mt-12">
+        <div className="text-center">
+          <p className="text-sm text-muted-foreground italic">
+            Join thousands* who've replaced their personalities with algorithms
+            <span className="block text-xs mt-2">*Zero actual customers. This is satire.</span>
+          </p>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        .animate-marquee {
+          animation: marquee 80s linear infinite;
+        }
+        
+        .animate-marquee:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
+    </section>
+  )
+}
