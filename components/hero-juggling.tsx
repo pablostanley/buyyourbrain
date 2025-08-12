@@ -140,9 +140,9 @@ export function HeroJuggling() {
                 <div className="hidden lg:block" />
               </div>
 
-              {/* Mobile Layout - Tall container with content on top */}
-              <div className="lg:hidden min-h-[85vh] sm:min-h-[90vh] flex flex-col">
-                <div className="flex-1 flex flex-col justify-center items-center text-center p-6 sm:p-8 pt-12 sm:pt-16 pb-4 space-y-4 sm:space-y-6">
+              {/* Mobile Layout - Container with min/max height constraints */}
+              <div className="lg:hidden min-h-[600px] h-[85vh] max-h-[900px] flex flex-col">
+                <div className="flex flex-col justify-center items-center text-center p-6 sm:p-8 pt-12 sm:pt-16 pb-4 space-y-4 sm:space-y-6">
                   <div className="space-y-3 sm:space-y-4 max-w-md">
                     <h1 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-white drop-shadow-2xl text-pretty">
                       {displayedText}
@@ -172,8 +172,8 @@ export function HeroJuggling() {
                     </RealityCheckModal>
                   </div>
                 </div>
-                {/* Spacer to ensure image subject is visible at bottom */}
-                <div className="h-[35vh] sm:h-[35vh]" />
+                {/* Large spacer to ensure image subject is always visible at bottom */}
+                <div className="flex-1" />
               </div>
             </div>
           </div>
