@@ -87,17 +87,17 @@ export const config = {
   whyNot: [
     {
       title: "Zero Learning Curve",
-      description: "Why learn when you can install? Knowledge is overrated, instant expertise is the future.",
+      description: "Install expertise instantly. Why waste time understanding?",
       icon: "Award",
     },
     {
       title: "Outsource Your Thinking",
-      description: "Let algorithms make all your decisions. Free yourself from the burden of consciousness.",
+      description: "Let algorithms decide. Consciousness is overrated.",
       icon: "Repeat",
     },
     {
       title: "Become Obsolete Faster",
-      description: "Why stay relevant? Surrender your uniqueness to our standardized AI brain modules.",
+      description: "Standardize your mind. Uniqueness was holding you back.",
       icon: "Wand",
     },
   ],

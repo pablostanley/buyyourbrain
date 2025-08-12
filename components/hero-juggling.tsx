@@ -112,6 +112,7 @@ export function HeroJuggling() {
                       size="lg"
                       onClick={scrollToGrid}
                       className="font-medium px-8 py-6 hover:scale-105 hover:shadow-xl transition-all duration-300"
+                      aria-label="Scroll to product selection"
                     >
                       Meet the brains
                     </Button>

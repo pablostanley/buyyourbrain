@@ -134,7 +134,6 @@ export function EnterpriseSection() {
             alt="Enterprise team with AI brains"
             fill
             className="object-cover object-center"
-            priority
           />
 
           <div className="absolute top-20 right-20 bg-card/90 backdrop-blur px-6 py-3 rounded-full border border-primary/20 animate-float z-20">
