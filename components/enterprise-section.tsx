@@ -46,17 +46,14 @@ export function EnterpriseSection() {
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
 
       <div className="relative h-full w-full flex">
-        {/* Left Content */}
         <div className="w-full lg:w-1/2 flex items-center justify-center p-8 md:p-16 lg:p-24">
           <div className={`max-w-2xl space-y-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
             }`}>
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 animate-pulse">
               <Sparkles className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-primary">ENTERPRISE SOLUTION</span>
             </div>
 
-            {/* Main Heading */}
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
                 Your Team Needs
@@ -64,12 +61,11 @@ export function EnterpriseSection() {
                   AI BRAIN SURGERY
                 </span>
               </h2>
-              <p className="text-xl md:text-2xl text-muted-foreground">
+              <p className="text-xl md:text-2xl text-muted-foreground text-pretty">
                 Why waste time on "training" when you can just INSTALL expertise directly into your employees' minds?
               </p>
             </div>
 
-            {/* Features */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {features.map((feature, index) => (
                 <div
@@ -84,7 +80,6 @@ export function EnterpriseSection() {
               ))}
             </div>
 
-            {/* Stats */}
             <div className="flex gap-8 pt-4">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-semibold text-primary animate-bounce">
@@ -106,7 +101,6 @@ export function EnterpriseSection() {
               </div>
             </div>
 
-            {/* CTA */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <RealityCheckModal>
                 <Button
@@ -127,15 +121,13 @@ export function EnterpriseSection() {
               </Button>
             </div>
 
-            {/* Disclaimer */}
-            <p className="text-xs text-muted-foreground/50 italic">
+            <p className="text-xs text-muted-foreground/50 italic text-pretty">
               *Results not real. Side effects may include: realizing this is a parody, understanding the importance of actual learning,
               and a sudden urge to take a real AI course.
             </p>
           </div>
         </div>
 
-        {/* Right Image */}
         <div className="hidden lg:block lg:w-1/2 relative">
           <Image
             src="/images/family2.png"
@@ -145,7 +137,6 @@ export function EnterpriseSection() {
             priority
           />
 
-          {/* Floating badges */}
           <div className="absolute top-20 right-20 bg-card/90 backdrop-blur px-6 py-3 rounded-full border border-primary/20 animate-float z-20">
             <span className="text-sm font-medium">AI-POWERED TEAM</span>
           </div>

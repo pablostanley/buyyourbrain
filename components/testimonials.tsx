@@ -77,14 +77,12 @@ export function Testimonials() {
     }
   ]
 
-  // Duplicate for seamless loop (only for desktop marquee)
   const duplicatedTestimonials = [...testimonials, ...testimonials]
 
   return (
     <section className="w-full py-16 md:py-24 lg:py-32 bg-gradient-to-b from-background via-muted/30 to-background overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 mb-12">
         <div className="text-center space-y-4">
-          {/* Badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
             <Brain className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-medium text-primary">SATISFIED CUSTOMERS</span>
@@ -96,14 +94,13 @@ export function Testimonials() {
               Void
             </span>
           </h2>
-          <p className="text-muted-foreground md:text-xl max-w-[700px] mx-auto">
+          <p className="text-muted-foreground md:text-xl max-w-[700px] mx-auto text-pretty">
             Real* people who surrendered their consciousness for artificial intelligence. 
             <span className="text-xs block mt-2 italic">*Not real people</span>
           </p>
         </div>
       </div>
 
-      {/* Mobile: Scrollable Cards */}
       <div className="md:hidden px-4 pb-4">
         <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory">
           {testimonials.map((testimonial, index) => (
@@ -111,7 +108,6 @@ export function Testimonials() {
               key={index}
               className="flex-shrink-0 w-[85vw] snap-center bg-gradient-to-br from-card to-card/50 backdrop-blur border border-border rounded-2xl overflow-hidden"
             >
-              {/* Image Section - Top */}
               <div className="relative w-full h-48">
                 <Image
                   src={testimonial.image}
@@ -119,30 +115,24 @@ export function Testimonials() {
                   fill
                   className="object-cover"
                 />
-                {/* Gradient overlay on image */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
                 
-                {/* Floating icon on image */}
                 <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
                   <Brain className="w-5 h-5 text-white" />
                 </div>
               </div>
 
-              {/* Content Section */}
               <div className="p-5">
-                {/* Rating Stars */}
                 <div className="flex gap-1 mb-3">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-3 h-3 fill-yellow-500 text-yellow-500" />
                   ))}
                 </div>
 
-                {/* Quote */}
-                <blockquote className="text-sm text-foreground/90 italic mb-4">
+                <blockquote className="text-sm text-foreground/90 italic mb-4 text-pretty">
                   "{testimonial.quote}"
                 </blockquote>
 
-                {/* Author Info */}
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="font-semibold text-sm text-foreground">{testimonial.name}</p>
@@ -155,19 +145,15 @@ export function Testimonials() {
           ))}
         </div>
         
-        {/* Scroll hint */}
         <div className="text-center mt-4">
           <p className="text-xs text-muted-foreground">← Swipe to see more →</p>
         </div>
       </div>
 
-      {/* Desktop: Marquee */}
       <div className="hidden md:block relative">
-        {/* Gradient overlays for fade effect */}
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
         
-        {/* Marquee Track */}
         <div className="flex gap-6 animate-marquee">
           {duplicatedTestimonials.map((testimonial, index) => (
             <div
@@ -175,39 +161,32 @@ export function Testimonials() {
               className="flex-shrink-0 w-[600px] bg-gradient-to-br from-card to-card/50 backdrop-blur border border-border rounded-2xl overflow-hidden hover:border-primary/50 transition-all duration-300 group"
             >
               <div className="flex h-full">
-                {/* Image Section - Half the card */}
                 <div className="relative w-1/2 h-[280px]">
                   <Image
                     src={testimonial.image}
                     alt={testimonial.name}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Gradient overlay on image */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
                   
-                  {/* Floating icon on image */}
-                  <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
+                    <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
                     <Brain className="w-6 h-6 text-white" />
                   </div>
                 </div>
 
-                {/* Content Section - Half the card */}
                 <div className="w-1/2 p-6 flex flex-col justify-between">
-                  {/* Rating Stars */}
-                  <div className="flex gap-1 mb-3">
+                    <div className="flex gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
                     ))}
                   </div>
 
-                  {/* Quote */}
-                  <blockquote className="text-foreground/90 italic flex-grow mb-4">
+                    <blockquote className="text-foreground/90 italic flex-grow mb-4 text-pretty">
                     "{testimonial.quote}"
                   </blockquote>
 
-                  {/* Author Info */}
-                  <div className="flex items-center justify-between">
+                    <div className="flex items-center justify-between">
                     <div>
                       <p className="font-semibold text-foreground">{testimonial.name}</p>
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
@@ -221,10 +200,9 @@ export function Testimonials() {
         </div>
       </div>
 
-      {/* Bottom CTA */}
       <div className="container mx-auto px-4 md:px-6 mt-12">
         <div className="text-center">
-          <p className="text-sm text-muted-foreground italic">
+          <p className="text-sm text-muted-foreground italic text-pretty">
             Join thousands* who've replaced their personalities with algorithms
             <span className="block text-xs mt-2">*Zero actual customers. This is satire.</span>
           </p>
@@ -249,7 +227,6 @@ export function Testimonials() {
           animation-play-state: paused;
         }
         
-        /* Hide scrollbar but keep functionality */
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;

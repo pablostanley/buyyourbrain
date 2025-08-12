@@ -21,7 +21,6 @@ export function HeroJuggling() {
         currentIndex++
       } else {
         clearInterval(typingInterval)
-        // Start typing subtext after main text is done
         let subtextIndex = 0
         const subtextInterval = setInterval(() => {
           if (subtextIndex <= fullSubtext.length) {
@@ -56,13 +55,11 @@ export function HeroJuggling() {
   return (
     <section className="relative w-full p-4">
       <div className="container mx-auto relative">
-        {/* Rainbow animated border container */}
         <div
           ref={containerRef}
           className="relative rounded-4xl p-[8px] overflow-hidden group"
           onMouseMove={handleMouseMove}
         >
-          {/* Animated rainbow gradient border - more vibrant */}
           <div
             className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
             style={{
@@ -80,9 +77,7 @@ export function HeroJuggling() {
             }}
           />
 
-          {/* Inner container - stays stable */}
           <div className="relative rounded-3xl overflow-hidden bg-background">
-            {/* Background image that scales on hover */}
             <div
               className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 group-hover:scale-[1.03]"
               style={{
@@ -90,7 +85,6 @@ export function HeroJuggling() {
               }}
             />
 
-            {/* Mouse-following spotlight effect - more prominent */}
             <div
               className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
               style={{
@@ -109,7 +103,7 @@ export function HeroJuggling() {
                       {displayedText}
                       <span className="animate-pulse">|</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-white/90 min-h-[3em] drop-shadow-lg">
+                    <p className="text-lg md:text-xl text-white/90 min-h-[3em] drop-shadow-lg text-pretty">
                       {displayedSubtext}
                     </p>
                   </div>
@@ -125,7 +119,7 @@ export function HeroJuggling() {
                       <Button
                         variant="outline"
                         size="lg"
-                        className="font-medium px-8 py-6 hover:scale-105 hover:shadow-xl transition-all duration-300 bg-white/10 backdrop-blur-sm border-white/20 hover:bg-white/20"
+                        className="font-medium px-8 py-6 hover:scale-105 hover:shadow-xl transition-all duration-300"
                       >
                         Is this real? (nope)
                       </Button>

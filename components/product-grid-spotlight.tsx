@@ -33,7 +33,6 @@ export function ProductGridSpotlight() {
     }
   }, [])
 
-  // Fun badges for cards
   const cardBadges = {
     'designer-brain': { text: '🔥 SUPER HOT!', color: 'from-orange-500 to-red-500' },
     'ai-brain': { text: '⚡ TRENDING', color: 'from-purple-500 to-pink-500' },
@@ -45,13 +44,11 @@ export function ProductGridSpotlight() {
 
   return (
     <section id="product-grid" className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
-      {/* Background effects */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
 
       <div className="container mx-auto px-4 md:px-6 relative">
         <div className="mb-12 text-center space-y-4">
-          {/* Badge */}
           <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 transition-all duration-1000 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
             }`}>
             <Sparkles className="w-4 h-4 text-primary animate-pulse" />
@@ -67,7 +64,7 @@ export function ProductGridSpotlight() {
               </span>
             </h2>
           </div>
-          <p className={`mt-4 max-w-[700px] mx-auto text-muted-foreground md:text-xl transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          <p className={`mt-4 max-w-[700px] mx-auto text-muted-foreground md:text-xl transition-all duration-1000 delay-200 text-pretty ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
             }`}>
             Instant expertise, zero effort. Pick your delusion below.
           </p>
@@ -91,7 +88,6 @@ export function ProductGridSpotlight() {
                   className="aspect-[4/5] group cursor-pointer relative"
                   spotlightColor="rgba(103, 38, 233, 0.3)"
                 >
-                  {/* Badge */}
                   {badge && index < 3 && (
                     <div className={`absolute top-4 right-4 z-20 px-3 py-1.5 rounded-full bg-gradient-to-r ${badge.color} text-white text-xs font-semibold animate-pulse`}>
                       {badge.text}
@@ -103,7 +99,6 @@ export function ProductGridSpotlight() {
                     onMouseEnter={() => setHoveredCard(brain.id)}
                     onMouseLeave={() => setHoveredCard(null)}
                   >
-                    {/* Background Image - fills entire card */}
                     <div
                       className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                       style={{
@@ -113,7 +108,6 @@ export function ProductGridSpotlight() {
                       }}
                     />
 
-                    {/* Gradient Overlay - always dark */}
                     <div
                       className="absolute inset-0"
                       style={{
@@ -124,10 +118,8 @@ export function ProductGridSpotlight() {
                       }}
                     />
 
-                    {/* Content */}
                     <div className="relative h-full flex flex-col justify-end p-6 md:p-8">
                       <div className="space-y-4">
-                        {/* Title - always white */}
                         <h3 className="text-2xl font-semibold text-white"
                           style={{
                             transform: hoveredCard === brain.id ? 'translateY(-2px)' : 'translateY(0)',
@@ -137,7 +129,6 @@ export function ProductGridSpotlight() {
                           {brain.name}
                         </h3>
 
-                        {/* Extra info - visible on hover */}
                         <div
                           className="space-y-3 overflow-hidden"
                           style={{
@@ -147,11 +138,10 @@ export function ProductGridSpotlight() {
                             transition: 'all 1.2s cubic-bezier(0.16, 1, 0.3, 1)',
                           }}
                         >
-                          <p className="text-white/90">
+                          <p className="text-white/90 text-pretty">
                             {brain.description}
                           </p>
 
-                          {/* Specs */}
                           <ul className="space-y-2 text-sm text-white/80">
                             {brain.specs.slice(0, 3).map((spec, specIndex) => (
                               <li
@@ -170,7 +160,6 @@ export function ProductGridSpotlight() {
                           </ul>
                         </div>
 
-                        {/* CTA Button - always visible with outline style */}
                         <div
                           style={{
                             transform: hoveredCard === brain.id ? 'translateY(-2px) scale(1.02)' : 'translateY(0) scale(1)',

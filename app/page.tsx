@@ -11,7 +11,7 @@ export default function HomePage() {
   return (
     <div className="flex min-h-screen w-full flex-col bg-background text-foreground overflow-x-hidden">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 pt-16">
         <HeroJuggling />
         <ProductGridSpotlight />
         <EnterpriseSection />
