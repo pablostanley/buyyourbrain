@@ -86,9 +86,9 @@ export function HeroJuggling() {
               }}
             />
 
-            {/* Mobile Background Image */}
+            {/* Mobile Background Image - centered */}
             <div
-              className="lg:hidden absolute inset-0 bg-cover bg-bottom bg-no-repeat transition-all duration-1000"
+              className="lg:hidden absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
               style={{
                 backgroundImage: "url('/images/juggling-mobile.jpg')",
               }}
@@ -141,7 +141,7 @@ export function HeroJuggling() {
               </div>
 
               {/* Mobile Layout - Container with min/max height constraints */}
-              <div className="lg:hidden min-h-[600px] h-[85vh] max-h-[900px] flex flex-col">
+              <div className="lg:hidden min-h-[560px] h-[85vh] max-h-[900px] flex flex-col">
                 <div className="flex flex-col justify-center items-center text-center p-6 sm:p-8 pt-12 sm:pt-16 pb-4 space-y-4 sm:space-y-6">
                   <div className="space-y-3 sm:space-y-4 max-w-md">
                     <h1 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-white drop-shadow-2xl text-pretty">
