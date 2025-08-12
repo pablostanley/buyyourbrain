@@ -53,7 +53,7 @@ export function HeroJuggling() {
   }
 
   return (
-    <section className="relative w-full p-4">
+    <section className="relative w-full p-2 sm:p-3 lg:p-4">
       <div className="container mx-auto relative">
         <div
           ref={containerRef}
@@ -78,10 +78,19 @@ export function HeroJuggling() {
           />
 
           <div className="relative rounded-3xl overflow-hidden bg-background">
+            {/* Desktop Background Image */}
             <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 group-hover:scale-[1.03]"
+              className="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 group-hover:scale-[1.03]"
               style={{
                 backgroundImage: "url('/images/juggling.png')",
+              }}
+            />
+
+            {/* Mobile Background Image */}
+            <div
+              className="lg:hidden absolute inset-0 bg-cover bg-bottom bg-no-repeat transition-all duration-1000"
+              style={{
+                backgroundImage: "url('/images/juggling-mobile.jpg')",
               }}
             />
 
@@ -96,18 +105,19 @@ export function HeroJuggling() {
             />
 
             <div className="relative">
-              <div className="grid lg:grid-cols-2 min-h-[600px] lg:min-h-[700px]">
-                <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16 space-y-8">
+              {/* Desktop Layout */}
+              <div className="hidden lg:grid lg:grid-cols-2 lg:min-h-[700px]">
+                <div className="flex flex-col justify-center p-16 space-y-8">
                   <div className="space-y-6">
-                    <h1 className="text-4xl font-semibold tracking-tighter sm:text-5xl xl:text-7xl/none text-white min-h-[3em] lg:min-h-[2em] drop-shadow-2xl">
+                    <h1 className="text-5xl font-semibold tracking-tighter xl:text-7xl/none text-white min-h-[2em] drop-shadow-2xl text-pretty">
                       {displayedText}
                       <span className="animate-pulse">|</span>
                     </h1>
-                    <p className="text-lg md:text-xl text-white/90 min-h-[3em] drop-shadow-lg text-pretty">
+                    <p className="text-xl text-white/90 min-h-[3em] drop-shadow-lg text-pretty">
                       {displayedSubtext}
                     </p>
                   </div>
-                  <div className="flex flex-col gap-4 sm:flex-row">
+                  <div className="flex gap-4">
                     <Button
                       size="lg"
                       onClick={scrollToGrid}
@@ -128,6 +138,42 @@ export function HeroJuggling() {
                   </div>
                 </div>
                 <div className="hidden lg:block" />
+              </div>
+
+              {/* Mobile Layout - Tall container with content on top */}
+              <div className="lg:hidden min-h-[85vh] sm:min-h-[90vh] flex flex-col">
+                <div className="flex-1 flex flex-col justify-center items-center text-center p-6 sm:p-8 pt-12 sm:pt-16 pb-4 space-y-4 sm:space-y-6">
+                  <div className="space-y-3 sm:space-y-4 max-w-md">
+                    <h1 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-white drop-shadow-2xl text-pretty">
+                      {displayedText}
+                      <span className="animate-pulse">|</span>
+                    </h1>
+                    <p className="text-base sm:text-lg text-white/90 drop-shadow-lg">
+                      {displayedSubtext}
+                    </p>
+                  </div>
+                  <div className="flex flex-col w-full max-w-sm gap-2 sm:gap-3">
+                    <Button
+                      size="lg"
+                      onClick={scrollToGrid}
+                      className="font-medium w-full py-5 sm:py-6 hover:scale-105 hover:shadow-xl transition-all duration-300"
+                      aria-label="Scroll to product selection"
+                    >
+                      Meet the brains
+                    </Button>
+                    <RealityCheckModal>
+                      <Button
+                        variant="secondary"
+                        size="lg"
+                        className="font-medium w-full py-5 sm:py-6 hover:scale-105 hover:shadow-xl transition-all duration-300"
+                      >
+                        Is this real? (nope)
+                      </Button>
+                    </RealityCheckModal>
+                  </div>
+                </div>
+                {/* Spacer to ensure image subject is visible at bottom */}
+                <div className="h-[35vh] sm:h-[35vh]" />
               </div>
             </div>
           </div>
