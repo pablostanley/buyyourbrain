@@ -58,9 +58,9 @@ export function ProductGridSpotlight() {
           <div className="overflow-visible pb-4">
             <h2 className={`text-3xl font-semibold tracking-tighter sm:text-5xl transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
-              Choose Your Brain{" "}
+              Choose your brain{" "}
               <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-primary dark:via-accent dark:to-primary animate-gradient-wave leading-relaxed">
-                Upgrade
+                upgrade
               </span>
             </h2>
           </div>
@@ -168,7 +168,7 @@ export function ProductGridSpotlight() {
                         >
                           <RealityCheckModal>
                             <Button variant="outline" className="w-full group/btn" size="lg">
-                              Install Now
+                              Install now
                               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover/btn:translate-x-2" />
                             </Button>
                           </RealityCheckModal>

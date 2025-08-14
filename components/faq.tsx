@@ -69,9 +69,9 @@ export function Faq() {
                 <span className="text-sm font-medium text-primary">FREQUENTLY ASKED</span>
               </div>
               <h2 className="text-3xl font-semibold tracking-tighter sm:text-5xl">
-                Questions About Your
+                Questions about your
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-                  Brain Upgrade
+                  brain upgrade
                 </span>
               </h2>
               <p className="text-muted-foreground text-lg text-pretty">

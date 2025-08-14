@@ -11,7 +11,7 @@ export function HeroJuggling() {
   const containerRef = useRef<HTMLDivElement>(null)
 
   const fullText = "Skip the learning. Install a new brain."
-  const fullSubtext = "Designer, AI, or data—pretend to pop it in. Results not included."
+  const fullSubtext = "Designer, AI, or data — pretend to pop it in. Results not included."
 
   useEffect(() => {
     let currentIndex = 0
@@ -141,7 +141,7 @@ export function HeroJuggling() {
               </div>
 
               {/* Mobile Layout - Container with min/max height constraints */}
-              <div className="lg:hidden min-h-[560px] h-[85vh] max-h-[900px] flex flex-col">
+              <div className="lg:hidden min-h-[600px] h-[85vh] max-h-[900px] flex flex-col">
                 <div className="flex flex-col justify-center items-center text-center p-6 sm:p-8 pt-12 sm:pt-16 pb-4 space-y-4 sm:space-y-6">
                   <div className="space-y-3 sm:space-y-4 max-w-md">
                     <h1 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-white drop-shadow-2xl text-pretty">

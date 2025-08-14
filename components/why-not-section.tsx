@@ -45,11 +45,11 @@ export function WhyNotSection() {
               <h2 className={`text-3xl font-semibold tracking-tighter sm:text-4xl md:text-5xl transition-all duration-1000 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
               }`}>
-                Why An{" "}
+                Why an{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-primary dark:via-accent dark:to-primary animate-gradient-x">
-                  Artificial
+                  artificial
                 </span>
-                {" "}Brain?
+                {" "}brain?
               </h2>
               <p className={`max-w-[700px] text-muted-foreground md:text-xl text-pretty transition-all duration-1000 delay-200 ${
                 isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'

@@ -89,9 +89,9 @@ export function Testimonials() {
           </div>
           
           <h2 className="text-3xl font-semibold tracking-tighter sm:text-5xl md:text-6xl">
-            They've Embraced the{" "}
+            They've embraced the{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-primary dark:via-accent dark:to-primary">
-              Void
+              void
             </span>
           </h2>
           <p className="text-muted-foreground md:text-xl max-w-[700px] mx-auto text-pretty">

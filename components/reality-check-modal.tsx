@@ -43,7 +43,7 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
               </DialogTitle>
               
               <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
-                You can't buy skills. You earn them. Use AI—don't outsource your thinking.
+                You can't buy skills. You earn them. Use AI to enhance your thinking, not replace it.
               </p>
             </div>
             

@@ -7,7 +7,7 @@ export const config = {
   brains: [
     {
       id: "designer-brain",
-      name: "Designer Brain—HyperNeocortex Deluxe",
+      name: "Designer Brain — HyperNeocortex Deluxe",
       description: "Everything suddenly looks… intentional.",
       image: "/images/laptop1.png",
       specs: [
@@ -86,17 +86,17 @@ export const config = {
   ],
   whyNot: [
     {
-      title: "Zero Learning Curve",
+      title: "Zero learning curve",
       description: "Install expertise instantly. Why waste time understanding?",
       icon: "Award",
     },
     {
-      title: "Outsource Your Thinking",
+      title: "Outsource your thinking",
       description: "Let algorithms decide. Consciousness is overrated.",
       icon: "Repeat",
     },
     {
-      title: "Become Obsolete Faster",
+      title: "Become obsolete faster",
       description: "Standardize your mind. Uniqueness was holding you back.",
       icon: "Wand",
     },
@@ -116,11 +116,11 @@ export const config = {
     },
     {
       question: "So what should I do?",
-      answer: "Learn how to use AI well—start on Udemy.",
+      answer: "Learn how to use AI well — start on Udemy.",
     },
     {
       question: "Is there a waitlist?",
-      answer: "No forms, no emails—just learn.",
+      answer: "No forms, no emails — just learn.",
     },
   ],
 }
