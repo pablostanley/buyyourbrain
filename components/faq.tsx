@@ -70,7 +70,7 @@ export function Faq() {
               </div>
               <h2 className="text-3xl font-semibold tracking-tighter sm:text-5xl">
                 Questions about your
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent pb-1">
                   brain upgrade
                 </span>
               </h2>

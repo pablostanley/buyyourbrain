@@ -5,19 +5,29 @@ import { RealityCheckModal } from "@/components/reality-check-modal"
 import { useEffect, useState, useRef, MouseEvent } from "react"
 
 export function HeroJuggling() {
-  const [displayedText, setDisplayedText] = useState("")
+  const [displayedTextPart1, setDisplayedTextPart1] = useState("")
+  const [displayedTextPart2, setDisplayedTextPart2] = useState("")
   const [displayedSubtext, setDisplayedSubtext] = useState("")
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const fullText = "Skip the learning. Install a new brain."
+  const fullTextPart1 = "Skip the learning. Install a "
+  const fullTextPart2 = "new brain"
+  const fullText = fullTextPart1 + fullTextPart2 + "."
   const fullSubtext = "Designer, AI, or data — pretend to pop it in. Results not included."
 
   useEffect(() => {
     let currentIndex = 0
     const typingInterval = setInterval(() => {
-      if (currentIndex <= fullText.length) {
-        setDisplayedText(fullText.slice(0, currentIndex))
+      if (currentIndex <= fullTextPart1.length) {
+        setDisplayedTextPart1(fullTextPart1.slice(0, currentIndex))
+        currentIndex++
+      } else if (currentIndex <= fullTextPart1.length + fullTextPart2.length) {
+        setDisplayedTextPart2(fullTextPart2.slice(0, currentIndex - fullTextPart1.length))
+        currentIndex++
+      } else if (currentIndex === fullTextPart1.length + fullTextPart2.length + 1) {
+        // Add the period
+        setDisplayedTextPart2(fullTextPart2 + ".")
         currentIndex++
       } else {
         clearInterval(typingInterval)
@@ -110,7 +120,10 @@ export function HeroJuggling() {
                 <div className="flex flex-col justify-center p-16 space-y-8">
                   <div className="space-y-6">
                     <h1 className="text-5xl font-semibold tracking-tighter xl:text-7xl/none text-white min-h-[2em] drop-shadow-2xl text-pretty">
-                      {displayedText}
+                      {displayedTextPart1}
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 animate-gradient-x">
+                        {displayedTextPart2}
+                      </span>
                       <span className="animate-pulse">|</span>
                     </h1>
                     <p className="text-xl text-white/90 min-h-[3em] drop-shadow-lg text-pretty">
@@ -145,7 +158,10 @@ export function HeroJuggling() {
                 <div className="flex flex-col justify-center items-center text-center p-6 sm:p-8 pt-12 sm:pt-16 pb-4 space-y-4 sm:space-y-6">
                   <div className="space-y-3 sm:space-y-4 max-w-md">
                     <h1 className="text-3xl sm:text-4xl font-semibold tracking-tighter text-white drop-shadow-2xl text-pretty">
-                      {displayedText}
+                      {displayedTextPart1}
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-cyan-300 animate-gradient-x">
+                        {displayedTextPart2}
+                      </span>
                       <span className="animate-pulse">|</span>
                     </h1>
                     <p className="text-base sm:text-lg text-white/90 drop-shadow-lg">
@@ -191,6 +207,20 @@ export function HeroJuggling() {
           100% {
             background-position: 0% 50%;
           }
+        }
+        
+        @keyframes gradient-x {
+          0%, 100% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+        }
+        
+        .animate-gradient-x {
+          background-size: 200% 200%;
+          animation: gradient-x 4s ease infinite;
         }
       `}</style>
     </section>

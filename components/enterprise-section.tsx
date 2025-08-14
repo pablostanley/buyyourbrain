@@ -57,7 +57,7 @@ export function EnterpriseSection() {
             <div className="space-y-4">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight">
                 Your team needs
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-primary dark:via-accent dark:to-primary animate-gradient-x">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-primary dark:via-accent dark:to-primary animate-gradient-x pb-1">
                   AI brain surgery
                 </span>
               </h2>
