@@ -30,9 +30,9 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
   const currentTheme = theme === "system" ? systemTheme : theme
   const logoSrc = mounted 
     ? currentTheme === "dark" 
-      ? "/images/udemy-logo-dark.svg" 
-      : "/images/udemy-logo-light.svg"
-    : "/images/udemy-logo-light.svg"
+      ? "/udemy_logo_dark.svg" 
+      : "/udemy_logo.svg"
+    : "/udemy_logo.svg"
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
