@@ -9,7 +9,7 @@ export const config = {
       id: "designer-brain",
       name: "Designer Brain — HyperNeocortex Deluxe",
       description: "Everything suddenly looks… intentional.",
-      image: "/images/laptop1.png",
+      image: "/images/confused1.png",
       specs: [
         "Kerning intuition module",
         "Latency-free eye-roll",
@@ -35,7 +35,7 @@ export const config = {
       id: "data-sensei",
       name: "Data Sensei OmniLobe",
       description: "Smells trends three quarters early.",
-      image: "/images/dork.png",
+      image: "/images/confused5.png",
       specs: [
         "Predictive analytics olfactory bulb",
         "SQL-to-English translator",
@@ -61,7 +61,7 @@ export const config = {
       id: "devops-hemispheres",
       name: "Night-Shift DevOps Hemispheres",
       description: "Uptime for your vibes.",
-      image: "/images/laptop2.png",
+      image: "/images/confused3.png",
       specs: [
         "99.999% emotional uptime",
         "On-call anxiety suppressor",

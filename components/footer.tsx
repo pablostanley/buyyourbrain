@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Brain, Sparkles, Zap } from "lucide-react"
+import { Brain } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { RealityCheckModal } from "@/components/reality-check-modal"
 import { useEffect, useState } from "react"
@@ -99,34 +99,6 @@ export function Footer() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes gradient-x {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(5deg);
-          }
-        }
-        
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 4s ease infinite;
-        }
-        
-        .animate-float {
-          animation: float 6s ease-in-out infinite;
-        }
-      `}</style>
     </footer>
   )
 }

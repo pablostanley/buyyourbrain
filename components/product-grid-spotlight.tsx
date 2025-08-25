@@ -183,21 +183,6 @@ export function ProductGridSpotlight() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes gradient-wave {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        
-        .animate-gradient-wave {
-          background-size: 200% 200%;
-          animation: gradient-wave 4s ease-in-out infinite;
-        }
-      `}</style>
     </section>
   )
 }

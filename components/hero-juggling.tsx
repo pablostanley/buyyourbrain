@@ -13,7 +13,6 @@ export function HeroJuggling() {
 
   const fullTextPart1 = "Skip the learning. Install a "
   const fullTextPart2 = "new brain"
-  const fullText = fullTextPart1 + fullTextPart2 + "."
   const fullSubtext = "Designer, AI, or data — pretend to pop it in. Results not included."
 
   useEffect(() => {
@@ -71,7 +70,7 @@ export function HeroJuggling() {
           onMouseMove={handleMouseMove}
         >
           <div
-            className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+            className="absolute inset-0 opacity-80 group-hover:opacity-100 transition-opacity duration-500 animate-gradient-shift"
             style={{
               background: `
                 linear-gradient(90deg, 
@@ -81,9 +80,7 @@ export function HeroJuggling() {
                   #06b6d4 60%, 
                   #10b981 80%, 
                   #eab308 100%
-                )`,
-              backgroundSize: '400% 400%',
-              animation: 'gradient-shift 8s ease infinite',
+                )`
             }}
           />
 
@@ -92,7 +89,7 @@ export function HeroJuggling() {
             <div
               className="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 group-hover:scale-[1.03]"
               style={{
-                backgroundImage: "url('/images/juggling.png')",
+                backgroundImage: "url('/images/juggling.jpg')",
               }}
             />
 
@@ -196,33 +193,6 @@ export function HeroJuggling() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes gradient-shift {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-        
-        @keyframes gradient-x {
-          0%, 100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-        
-        .animate-gradient-x {
-          background-size: 200% 200%;
-          animation: gradient-x 4s ease infinite;
-        }
-      `}</style>
     </section>
   )
 }

@@ -2,32 +2,18 @@
 
 import Image from "next/image"
 import { Star, Brain, Zap } from "lucide-react"
-import { useEffect, useState } from "react"
 
 export function Testimonials() {
-  const [isMobile, setIsMobile] = useState(false)
-  
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-    
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    
-    return () => window.removeEventListener('resize', checkMobile)
-  }, [])
-
   const testimonials = [
     {
-      image: "/images/testimonial1.png",
+      image: "/images/testimonial6.png",
       name: "Sarah Chen",
       role: "Former Human",
       quote: "I haven't had an original thought since installing my AI brain. It's liberating! Why think when the algorithm does it better?",
       rating: 5
     },
     {
-      image: "/images/testimonial2.png", 
+      image: "/images/commute.png",
       name: "Marcus Johnson",
       role: "Ex-Creative Director",
       quote: "My AI brain generates 1000 ideas per second. They're all terrible, but the quantity is impressive. I've forgotten what creativity feels like.",
@@ -87,7 +73,7 @@ export function Testimonials() {
             <Brain className="w-4 h-4 text-primary animate-pulse" />
             <span className="text-sm font-medium text-primary">SATISFIED CUSTOMERS</span>
           </div>
-          
+
           <h2 className="text-3xl font-semibold tracking-tighter sm:text-5xl md:text-6xl">
             They've embraced the{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-purple-500 to-cyan-500 dark:from-primary dark:via-accent dark:to-primary">
@@ -95,7 +81,7 @@ export function Testimonials() {
             </span>
           </h2>
           <p className="text-muted-foreground md:text-xl max-w-[700px] mx-auto text-pretty">
-            Real* people who surrendered their consciousness for artificial intelligence. 
+            Real* people who surrendered their consciousness for artificial intelligence.
             <span className="text-xs block mt-2 italic">*Not real people</span>
           </p>
         </div>
@@ -116,7 +102,7 @@ export function Testimonials() {
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                
+
                 <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
                   <Brain className="w-5 h-5 text-white" />
                 </div>
@@ -144,7 +130,7 @@ export function Testimonials() {
             </div>
           ))}
         </div>
-        
+
         <div className="text-center mt-4">
           <p className="text-xs text-muted-foreground">← Swipe to see more →</p>
         </div>
@@ -153,7 +139,7 @@ export function Testimonials() {
       <div className="hidden md:block relative">
         <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-        
+
         <div className="flex gap-6 animate-marquee">
           {duplicatedTestimonials.map((testimonial, index) => (
             <div
@@ -168,25 +154,25 @@ export function Testimonials() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
-                  
-                    <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
+
+                  <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
                     <Brain className="w-6 h-6 text-white" />
                   </div>
                 </div>
 
                 <div className="w-1/2 p-6 flex flex-col justify-between">
-                    <div className="flex gap-1 mb-3">
+                  <div className="flex gap-1 mb-3">
                     {[...Array(5)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-yellow-500 text-yellow-500" />
                     ))}
                   </div>
 
-                    <blockquote className="text-foreground/90 italic flex-grow mb-4 text-pretty">
+                  <blockquote className="text-foreground/90 italic flex-grow mb-4 text-pretty">
                     "{testimonial.quote}"
                   </blockquote>
 
-                    <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between">
                     <div>
                       <p className="font-semibold text-foreground">{testimonial.name}</p>
                       <p className="text-sm text-muted-foreground">{testimonial.role}</p>
@@ -209,33 +195,6 @@ export function Testimonials() {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        .animate-marquee {
-          animation: marquee 80s linear infinite;
-        }
-        
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-        
-        .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-        
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
     </section>
   )
 }
