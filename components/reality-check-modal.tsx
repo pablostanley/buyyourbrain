@@ -1,3 +1,5 @@
+"use client"
+
 import type React from "react"
 import {
   Dialog,
@@ -10,12 +12,27 @@ import Link from "next/link"
 import { config } from "@/app/config"
 import Image from "next/image"
 import { ArrowRight } from "lucide-react"
+import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
 interface RealityCheckModalProps {
   children: React.ReactNode
 }
 
 export function RealityCheckModal({ children }: RealityCheckModalProps) {
+  const { theme, systemTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const currentTheme = theme === "system" ? systemTheme : theme
+  const logoSrc = mounted 
+    ? currentTheme === "dark" 
+      ? "/images/udemy-logo-dark.svg" 
+      : "/images/udemy-logo-light.svg"
+    : "/images/udemy-logo-light.svg"
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -54,6 +71,16 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
                   <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </Button>
+              
+              <div className="pt-2">
+                <Image
+                  src={logoSrc}
+                  alt="Udemy"
+                  width={91}
+                  height={34}
+                  className="opacity-70 hover:opacity-100 transition-opacity"
+                />
+              </div>
               
               <p className="text-xs text-muted-foreground/70">
                 Parody site for a Udemy campaign. Nothing here is for sale.

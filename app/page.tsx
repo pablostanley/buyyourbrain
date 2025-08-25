@@ -1,10 +1,8 @@
 import { Header } from "@/components/header"
 import { HeroJuggling } from "@/components/hero-juggling"
 import { ProductGridSpotlight } from "@/components/product-grid-spotlight"
-import { CurvedTextDivider } from "@/components/curved-text-divider"
 import { EnterpriseSection } from "@/components/enterprise-section"
 import { Testimonials } from "@/components/testimonials"
-import { WhyNotSection } from "@/components/why-not-section"
 import { Faq } from "@/components/faq"
 import { Footer } from "@/components/footer"
 
@@ -15,10 +13,8 @@ export default function HomePage() {
       <main className="flex-1 pt-16">
         <HeroJuggling />
         <ProductGridSpotlight />
-        <CurvedTextDivider />
         <EnterpriseSection />
         <Testimonials />
-        <WhyNotSection />
         <Faq />
       </main>
       <Footer />

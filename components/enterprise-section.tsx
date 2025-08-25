@@ -111,14 +111,16 @@ export function EnterpriseSection() {
                   <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-2 transition-transform" />
                 </Button>
               </RealityCheckModal>
-              <Button
-                variant="outline"
-                size="lg"
-                className="px-8 py-6 hover:scale-105 transition-all duration-300"
-              >
-                <TrendingUp className="mr-2 h-5 w-5" />
-                See ROI Calculator
-              </Button>
+              <RealityCheckModal>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="px-8 py-6 hover:scale-105 transition-all duration-300"
+                >
+                  <TrendingUp className="mr-2 h-5 w-5" />
+                  See ROI Calculator
+                </Button>
+              </RealityCheckModal>
             </div>
 
             <p className="text-xs text-muted-foreground/50 italic text-pretty">
