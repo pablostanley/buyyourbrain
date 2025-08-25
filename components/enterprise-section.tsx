@@ -62,7 +62,7 @@ export function EnterpriseSection() {
                 </span>
               </h2>
               <p className="text-xl md:text-2xl text-muted-foreground text-pretty">
-                Why waste time on "training" when you can just INSTALL expertise directly into your employees' minds?
+                Why waste time on "learning" when you can just INSTALL expertise directly into your employees' minds?
               </p>
             </div>
 

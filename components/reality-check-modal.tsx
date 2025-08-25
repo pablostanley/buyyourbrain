@@ -20,19 +20,35 @@ interface RealityCheckModalProps {
 }
 
 export function RealityCheckModal({ children }: RealityCheckModalProps) {
-  const { theme, systemTheme, resolvedTheme } = useTheme()
+  const { theme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [isDark, setIsDark] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  // Use resolvedTheme which automatically handles system theme
-  const logoSrc = mounted 
-    ? resolvedTheme === "dark" 
-      ? "/udemy_logo_dark.svg" 
-      : "/udemy_logo.svg"
-    : "/udemy_logo.svg"
+  // Check for dark mode using both theme and DOM
+  useEffect(() => {
+    const checkDarkMode = () => {
+      const isDarkMode = theme === 'dark' || 
+                        document.documentElement.classList.contains('dark')
+      setIsDark(isDarkMode)
+    }
+    
+    checkDarkMode()
+    
+    // Also observe class changes on the html element
+    const observer = new MutationObserver(checkDarkMode)
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    })
+    
+    return () => observer.disconnect()
+  }, [theme])
+
+  const logoSrc = isDark ? "/udemy_logo_dark.svg" : "/udemy_logo.svg"
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
@@ -73,13 +89,16 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
               </Button>
               
               <div className="pt-2">
-                <Image
-                  src={logoSrc}
-                  alt="Udemy"
-                  width={91}
-                  height={34}
-                  className="opacity-70 hover:opacity-100 transition-opacity"
-                />
+                {mounted && (
+                  <Image
+                    key={logoSrc}
+                    src={logoSrc}
+                    alt="Udemy"
+                    width={91}
+                    height={34}
+                    className="opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                )}
               </div>
               
               <p className="text-xs text-muted-foreground/70">
