@@ -1,5 +1,5 @@
 export const config = {
-  siteName: "BuyYourBrain",
+  siteName: "BuyaBrain",
   udemyLinks: {
     ai: "https://www.udemy.com/topic/artificial-intelligence/",
     aiForDesigners: "https://www.udemy.com/topic/ai-for-designers/",
@@ -104,7 +104,7 @@ export const config = {
   faq: [
     {
       question: "Is any of this real?",
-      answer: "No. It’s a joke.",
+      answer: "No. It's a vibe-coded parody by Udemy.",
     },
     {
       question: "Can I buy a brain?",

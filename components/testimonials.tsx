@@ -204,7 +204,7 @@ export function Testimonials() {
         <div className="text-center">
           <p className="text-sm text-muted-foreground italic text-pretty">
             Join thousands* who've replaced their personalities with algorithms
-            <span className="block text-xs mt-2">*Zero actual customers. This is satire.</span>
+            <span className="block text-xs mt-2">*Zero actual customers. Vibe-coded parody by Udemy.</span>
           </p>
         </div>
       </div>

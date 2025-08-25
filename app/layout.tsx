@@ -8,7 +8,7 @@ import { PasswordProtection } from "@/components/password-protection"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "BuyYourBrain.ai - A Parody",
+  title: "BuyaBrain.ai - Vibe-Coded Parody by Udemy",
   description: "You can't buy skills. You earn them. Use AI to enhance your thinking, not replace it.",
   icons: {
     icon: [

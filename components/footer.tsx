@@ -58,7 +58,7 @@ export function Footer() {
             </Button>
           </RealityCheckModal>
           <p className="text-xs text-muted-foreground italic text-pretty">
-            *Not a real product. This is a parody. Please use your actual brain.
+            *Not a real product. Vibe-coded parody by Udemy. Please use your actual brain.
           </p>
         </div>
 
@@ -68,7 +68,7 @@ export function Footer() {
             <div className="flex items-center gap-3">
               <Brain className="h-5 w-5 text-primary" />
               <p className="text-sm text-muted-foreground text-pretty">
-                © 2025 BuyYourBrain.ai | A Udemy parody campaign
+                © 2025 BuyaBrain.ai | Vibe-coded parody by Udemy
               </p>
             </div>
 

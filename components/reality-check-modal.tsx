@@ -102,7 +102,7 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
               </div>
               
               <p className="text-xs text-muted-foreground/70">
-                Parody site for a Udemy campaign. Nothing here is for sale.
+                Vibe-coded parody by Udemy. Nothing here is for sale.
               </p>
             </div>
           </div>

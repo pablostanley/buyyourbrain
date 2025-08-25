@@ -124,8 +124,8 @@ export function EnterpriseSection() {
             </div>
 
             <p className="text-xs text-muted-foreground/50 italic text-pretty">
-              *Results not real. Side effects may include: realizing this is a parody, understanding the importance of actual learning,
-              and a sudden urge to take a real AI course.
+              *Results not real. Side effects may include: understanding the importance of actual learning
+              and a sudden urge to take a real AI course. Vibe-coded parody by Udemy.
             </p>
           </div>
         </div>
