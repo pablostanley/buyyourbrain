@@ -20,16 +20,16 @@ interface RealityCheckModalProps {
 }
 
 export function RealityCheckModal({ children }: RealityCheckModalProps) {
-  const { theme, systemTheme } = useTheme()
+  const { theme, systemTheme, resolvedTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
   }, [])
 
-  const currentTheme = theme === "system" ? systemTheme : theme
+  // Use resolvedTheme which automatically handles system theme
   const logoSrc = mounted 
-    ? currentTheme === "dark" 
+    ? resolvedTheme === "dark" 
       ? "/udemy_logo_dark.svg" 
       : "/udemy_logo.svg"
     : "/udemy_logo.svg"
