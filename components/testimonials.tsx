@@ -27,7 +27,7 @@ export function Testimonials() {
       rating: 5
     },
     {
-      image: "/images/testimonial4.png",
+      image: "/images/conference.png",
       name: "David Kim",
       role: "Consciousness Optional",
       quote: "The best part about my AI brain? I can finally argue any position with confidence, even if I understand nothing. Especially if I understand nothing.",
@@ -154,9 +154,8 @@ export function Testimonials() {
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
 
-                  <div className="absolute top-4 left-4 p-2 bg-white/10 backdrop-blur rounded-full">
+                  <div className="absolute top-4 left-4 p-2 bg-black/20 backdrop-blur rounded-full">
                     <Brain className="w-6 h-6 text-white" />
                   </div>
                 </div>

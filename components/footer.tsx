@@ -32,7 +32,7 @@ export function Footer() {
   }, [])
 
   return (
-    <footer id="footer-section" className="relative w-full py-24 overflow-hidden bg-gradient-to-t from-muted to-background">
+    <footer id="footer-section" className="relative w-full pt-24 pb-8 overflow-hidden bg-gradient-to-t from-muted to-background">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
 
       <div className="container mx-auto px-4 md:px-6 relative">
