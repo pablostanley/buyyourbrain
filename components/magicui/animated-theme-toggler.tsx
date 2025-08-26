@@ -46,7 +46,15 @@ export const AnimatedThemeToggler = ({ className }: props) => {
     );
   };
   return (
-    <button ref={buttonRef} onClick={changeTheme} className={cn(className)}>
+    <button 
+      ref={buttonRef} 
+      onClick={changeTheme} 
+      className={cn(
+        "p-2 rounded-lg transition-all duration-200 hover:bg-muted hover:scale-110 cursor-pointer",
+        className
+      )}
+      aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+    >
       {isDarkMode ? <SunDim /> : <Moon />}
     </button>
   );
