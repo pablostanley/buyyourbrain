@@ -5,33 +5,13 @@ import SpotlightCard from "@/components/ui/spotlight-card"
 import { Button } from "@/components/ui/button"
 import { RealityCheckModal } from "@/components/reality-check-modal"
 import { ArrowRight, Sparkles, Flame, Zap, TrendingUp } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useRef } from "react"
+import { useIntersectionVisibility } from "@/hooks/use-intersection-visibility"
 
 export function ProductGridSpotlight() {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null)
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const element = document.getElementById("product-grid")
-    if (element) {
-      observer.observe(element)
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element)
-      }
-    }
-  }, [])
+  const sectionRef = useRef<HTMLElement>(null)
+  const isVisible = useIntersectionVisibility(sectionRef, { threshold: 0.1 })
 
   const cardBadges = {
     'designer-brain': { text: '🔥 SUPER HOT!', color: 'from-orange-500 to-red-500' },
@@ -43,7 +23,7 @@ export function ProductGridSpotlight() {
   }
 
   return (
-    <section id="product-grid" className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
+    <section ref={sectionRef} id="product-grid" className="w-full py-16 md:py-24 lg:py-32 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-muted/20 to-background" />
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:40px_40px]" />
 

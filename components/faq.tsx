@@ -3,7 +3,8 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { config } from "@/app/config"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useRef } from "react"
+import { useIntersectionVisibility } from "@/hooks/use-intersection-visibility"
 import {
   Brain,
   Zap,
@@ -18,29 +19,8 @@ import {
 } from "lucide-react"
 
 export function Faq() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const element = document.getElementById("faq-section")
-    if (element) {
-      observer.observe(element)
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element)
-      }
-    }
-  }, [])
+  const sectionRef = useRef<HTMLElement>(null)
+  const isVisible = useIntersectionVisibility(sectionRef, { threshold: 0.1 })
 
   const getIcon = (question: string) => {
     const lowerQuestion = question.toLowerCase()
@@ -56,7 +36,7 @@ export function Faq() {
   }
 
   return (
-    <section id="faq-section" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-muted to-background relative overflow-hidden">
+    <section ref={sectionRef} id="faq-section" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-muted to-background relative overflow-hidden">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:30px_30px]" />
 
       <div className="container mx-auto relative p-4">

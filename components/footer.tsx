@@ -4,35 +4,15 @@ import Link from "next/link"
 import { Brain } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { RealityCheckModal } from "@/components/reality-check-modal"
-import { useEffect, useState } from "react"
+import { useRef } from "react"
+import { useIntersectionVisibility } from "@/hooks/use-intersection-visibility"
 
 export function Footer() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const element = document.getElementById("footer-section")
-    if (element) {
-      observer.observe(element)
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element)
-      }
-    }
-  }, [])
+  const footerRef = useRef<HTMLDivElement>(null)
+  const isVisible = useIntersectionVisibility(footerRef, { threshold: 0.1 })
 
   return (
-    <footer id="footer-section" className="relative w-full pt-24 pb-8 overflow-hidden bg-gradient-to-t from-muted to-background">
+    <footer ref={footerRef} id="footer-section" className="relative w-full pt-24 pb-8 overflow-hidden bg-gradient-to-t from-muted to-background">
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
 
       <div className="container mx-auto px-4 md:px-6 relative">

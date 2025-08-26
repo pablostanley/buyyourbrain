@@ -4,32 +4,12 @@ import { Button } from "@/components/ui/button"
 import { RealityCheckModal } from "@/components/reality-check-modal"
 import { ArrowRight, Zap, Brain, Sparkles, TrendingUp, Users, Rocket } from "lucide-react"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useRef } from "react"
+import { useIntersectionVisibility } from "@/hooks/use-intersection-visibility"
 
 export function EnterpriseSection() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const element = document.getElementById("enterprise-section")
-    if (element) {
-      observer.observe(element)
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element)
-      }
-    }
-  }, [])
+  const sectionRef = useRef<HTMLElement>(null)
+  const isVisible = useIntersectionVisibility(sectionRef, { threshold: 0.1 })
 
   const features = [
     { icon: Brain, text: "10X PRODUCTIVITY INSTANTLY" },
@@ -40,6 +20,7 @@ export function EnterpriseSection() {
 
   return (
     <section
+      ref={sectionRef}
       id="enterprise-section"
       className="relative w-screen h-screen -mx-[50vw] left-[50%] right-[50%] overflow-hidden bg-gradient-to-br from-background via-card to-background"
     >

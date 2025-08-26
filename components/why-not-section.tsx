@@ -3,7 +3,8 @@
 import type React from "react"
 import { config } from "@/app/config"
 import { Award, Repeat, Wand } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useRef } from "react"
+import { useIntersectionVisibility } from "@/hooks/use-intersection-visibility"
 
 const icons: { [key: string]: React.ElementType } = {
   Award,
@@ -12,32 +13,11 @@ const icons: { [key: string]: React.ElementType } = {
 }
 
 export function WhyNotSection() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 }
-    )
-
-    const element = document.getElementById("why-not-section")
-    if (element) {
-      observer.observe(element)
-    }
-
-    return () => {
-      if (element) {
-        observer.unobserve(element)
-      }
-    }
-  }, [])
+  const sectionRef = useRef<HTMLElement>(null)
+  const isVisible = useIntersectionVisibility(sectionRef, { threshold: 0.1 })
 
   return (
-    <section id="why-not-section" className="w-full py-12 md:py-24 lg:py-32">
+    <section ref={sectionRef} id="why-not-section" className="w-full py-12 md:py-24 lg:py-32">
       <div className="container mx-auto px-4 md:px-6">
         <div className="bg-muted/30 dark:bg-card/30 rounded-3xl p-8 md:p-12 lg:p-16 border border-border/50">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
