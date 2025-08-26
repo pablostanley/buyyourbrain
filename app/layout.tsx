@@ -11,6 +11,41 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "BuyaBrain.ai - Vibe-Coded Parody by Udemy",
   description: "You can't buy skills. You earn them. Use AI to enhance your thinking, not replace it.",
+  metadataBase: new URL('https://buyabrain.ai'),
+  openGraph: {
+    title: "BuyaBrain.ai - Vibe-Coded Parody by Udemy",
+    description: "You can't buy skills. You earn them. Use AI to enhance your thinking, not replace it.",
+    url: 'https://buyabrain.ai',
+    siteName: 'BuyaBrain.ai',
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'BuyaBrain.ai - Skip the learning. Install a new brain.',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "BuyaBrain.ai - Vibe-Coded Parody by Udemy",
+    description: "You can't buy skills. You earn them. Use AI to enhance your thinking, not replace it.",
+    images: ['/images/og-image.jpg'],
+    creator: '@pablostanley',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -25,6 +60,9 @@ export const metadata: Metadata = {
     ],
   },
   themeColor: '#A435F0',
+  alternates: {
+    canonical: 'https://buyabrain.ai',
+  },
 }
 
 export default function RootLayout({
