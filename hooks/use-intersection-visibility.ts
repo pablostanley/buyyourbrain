@@ -7,7 +7,7 @@ interface UseIntersectionVisibilityOptions {
 }
 
 export function useIntersectionVisibility(
-  ref: RefObject<HTMLElement>,
+  ref: RefObject<HTMLElement | null>,
   options: UseIntersectionVisibilityOptions = {}
 ): boolean {
   const {
