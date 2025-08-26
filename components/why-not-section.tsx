@@ -85,7 +85,6 @@ export function WhyNotSection() {
                     </div>
                   </div>
                   
-                  {/* Subtle glow effect on hover */}
                   <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/0 via-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:via-accent/5 group-hover:to-primary/5 transition-all duration-500 pointer-events-none" />
                 </div>
               )

@@ -28,7 +28,6 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
     setMounted(true)
   }, [])
 
-  // Check for dark mode using both theme and DOM
   useEffect(() => {
     const checkDarkMode = () => {
       const isDarkMode = theme === 'dark' || 
@@ -54,7 +53,6 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="max-w-[90vw] sm:max-w-[800px] p-0 overflow-hidden">
         <div className="flex flex-col md:flex-row">
-          {/* Image Section - Left on desktop, top on mobile */}
           <div className="relative w-full md:w-2/5 h-64 md:h-auto md:min-h-[400px]">
             <Image
               src="/images/puppy.png"
@@ -63,11 +61,9 @@ export function RealityCheckModal({ children }: RealityCheckModalProps) {
               className="object-cover"
               priority
             />
-            {/* Gradient overlay for better text readability on mobile */}
             <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/40 via-black/20 to-transparent md:hidden" />
           </div>
           
-          {/* Content Section - Right on desktop, bottom on mobile */}
           <div className="flex flex-col justify-center p-8 md:p-12 md:w-3/5 space-y-6">
             <div className="space-y-4">
               <DialogTitle className="text-2xl md:text-3xl font-semibold tracking-tight">

@@ -85,7 +85,6 @@ export function HeroJuggling() {
           />
 
           <div className="relative rounded-3xl overflow-hidden bg-background">
-            {/* Desktop Background Image */}
             <div
               className="hidden lg:block absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 group-hover:scale-[1.03]"
               style={{
@@ -93,7 +92,6 @@ export function HeroJuggling() {
               }}
             />
 
-            {/* Mobile Background Image - centered */}
             <div
               className="lg:hidden absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
               style={{
@@ -112,7 +110,6 @@ export function HeroJuggling() {
             />
 
             <div className="relative">
-              {/* Desktop Layout */}
               <div className="hidden lg:grid lg:grid-cols-2 lg:min-h-[700px]">
                 <div className="flex flex-col justify-center p-16 space-y-8">
                   <div className="space-y-6">
@@ -150,7 +147,6 @@ export function HeroJuggling() {
                 <div className="hidden lg:block" />
               </div>
 
-              {/* Mobile Layout - Container with min/max height constraints */}
               <div className="lg:hidden min-h-[600px] h-[85vh] max-h-[900px] flex flex-col">
                 <div className="flex flex-col justify-center items-center text-center p-6 sm:p-8 pt-12 sm:pt-16 pb-4 space-y-4 sm:space-y-6">
                   <div className="space-y-3 sm:space-y-4 max-w-md">
@@ -185,7 +181,6 @@ export function HeroJuggling() {
                     </RealityCheckModal>
                   </div>
                 </div>
-                {/* Large spacer to ensure image subject is always visible at bottom */}
                 <div className="flex-1" />
               </div>
             </div>
